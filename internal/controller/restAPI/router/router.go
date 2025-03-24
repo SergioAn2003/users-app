@@ -14,10 +14,10 @@ func New(mw *middlewares.Middleware, h *handler.Handler) chi.Router {
 	r.Route("/api", func(r chi.Router) {
 		r.Use(middleware.RealIP, middleware.Recoverer, mw.Log)
 
-		r.Get("/user", h.GetUserByID)
-		r.Post("/user", h.CreateUser)
-		r.Put("/user", h.UpdateUser)
-		r.Delete("/user", h.DeleteUser)
+		r.Get("/users", h.GetUserByID)
+		r.Post("/users", h.CreateUser)
+		r.Put("/users", h.UpdateUser)
+		r.Delete("/users", h.DeleteUser)
 	})
 
 	return r
